@@ -281,3 +281,112 @@ document.addEventListener('DOMContentLoaded', function() {
     checkCompletedTasks();
 });
     
+
+
+
+
+
+
+
+
+
+// Функционал записи к врачу
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('appointmentModal');
+    const closeBtn = document.querySelector('.close');
+    const appointmentForm = document.getElementById('appointmentForm');
+    
+    // Обработчики для кнопок "Записаться"
+    const appointmentButtons = document.querySelectorAll('.specialist-card .btn-primary');
+    
+    appointmentButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const card = this.closest('.specialist-card');
+            const name = card.querySelector('.specialist-name').textContent;
+            const spec = card.querySelector('.specialist-spec').textContent;
+            const location = card.querySelector('.specialist-location').textContent;
+            
+            // Заполняем модальное окно данными о специалисте
+            document.getElementById('modalSpecialistName').textContent = name;
+            document.getElementById('modalSpecialistSpec').textContent = spec;
+            document.getElementById('modalSpecialistLocation').textContent = location;
+            
+            // Показываем модальное окно
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Блокируем прокрутку фона
+        });
+    });
+    
+    // Закрытие модального окна
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+    
+    // Закрытие при клике вне модального окна
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Обработка отправки формы
+    appointmentForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Получаем данные из формы
+        const specialistName = document.getElementById('modalSpecialistName').textContent;
+        const date = document.getElementById('appointmentDate').value;
+        const time = document.getElementById('appointmentTime').value;
+        const patientName = document.getElementById('patientName').value;
+        const patientPhone = document.getElementById('patientPhone').value;
+        
+        // Здесь обычно отправляем данные на сервер
+        // В нашем случае просто покажем уведомление
+        showNotification(`Запись к ${specialistName} на ${date} в ${time} успешно создана!`);
+        
+        // Закрываем модальное окно
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // Очищаем форму
+        appointmentForm.reset();
+        
+        // Добавляем запись в профиль пациента
+        addAppointmentToProfile(specialistName, date, time);
+    });
+    
+    // Функция добавления записи в профиль
+    function addAppointmentToProfile(specialistName, date, time) {
+        // Форматируем дату
+        const formattedDate = new Date(date).toLocaleDateString('ru-RU', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+        
+        // Создаем элемент списка
+        const appointmentItem = document.createElement('li');
+        appointmentItem.innerHTML = `
+            <span>${formattedDate}, ${time}</span>
+            <span>${specialistName}</span>
+            <button class="delete-btn">✕</button>
+        `;
+        
+        // Добавляем в список записей на прием
+        const appointmentsList = document.querySelector('.appointments-list');
+        appointmentsList.appendChild(appointmentItem);
+        
+        // Добавляем обработчик для кнопки удаления
+        const deleteBtn = appointmentItem.querySelector('.delete-btn');
+        deleteBtn.addEventListener('click', function() {
+            appointmentItem.remove();
+            showNotification('Запись удалена');
+        });
+    }
+    
+    // Устанавливаем минимальную дату для выбора (сегодня)
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('appointmentDate').setAttribute('min', today);
+});
