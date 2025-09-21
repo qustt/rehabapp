@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Макет приложения</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <!-- Левое меню -->
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i>
+            <h1>Assistant Demo</h1>
+        </div>
+        
+        <div class="user-info">
+            <div class="user-avatar">АП</div>
+            <div class="user-details">
+                <h3>Алексей Петров</h3>
+                <p>Пациент</p>
+            </div>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#" class="nav-link active" data-screen="profile">
+                    <i class="fas fa-user"></i>
+                    <span>Профиль</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" data-screen="home">
+                    <i class="fas fa-home"></i>
+                    <span>Главная</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" data-screen="chat">
+                    <i class="fas fa-comment"></i>
+                    <span>Чат</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" data-screen="products">
+                    <i class="fas fa-wheelchair"></i>
+                    <span>ТСР</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" data-screen="specialists">
+                    <i class="fas fa-user-md"></i>
+                    <span>Специалисты</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <!-- Экран 1: Профиль пациента -->
+        <section id="profile-screen" class="screen active">
+            <div class="screen-header">
+                <h2>Профиль пациента</h2>
+                <p>Личная информация и медицинские данные</p>
+            </div>
+            
+            <div class="card">
+                <div class="profile-info">
+                    <div class="profile-avatar">АП</div>
+                    <div class="profile-details">
+                        <h3>Алексей Петров</h3>
+                        <p>42 года, Москва</p>
+                    </div>
+                </div>
+                
+                <div class="profile-grid">
+                    <div>
+                        <h4 class="card-title">Медицинская информация</h4>
+                        <div class="info-item">
+                            <div class="info-label">Диагноз:</div>
+                            <div class="info-value">Состояние после эндопротезирования тазобедренного сустава (июнь 2023)</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Лечащий врач:</div>
+                            <div class="info-value">Др. Иванова Е.К.</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Статус:</div>
+                            <div class="info-value">Реабилитация</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="card-title">Контакты</h4>
+                        <div class="info-item">
+                            <div class="info-label">Телефон:</div>
+                            <div class="info-value">+7 (999) 123-45-67</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Email:</div>
+                            <div class="info-value">alexey.petrov@example.com</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Адрес:</div>
+                            <div class="info-value">ул. Примерная, д. 10, кв. 25</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Записи на прием</h4>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">15 авг, 14:30</div>
+                        <div class="info-value">Др. Иванова - Контрольный осмотр</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">22 авг, 10:00</div>
+                        <div class="info-value">Физиотерапевт - ЛФК</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">30 авг, 11:00</div>
+                        <div class="info-value">Онлайн-консультация с реабилитологом</div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Предстоящие консультации</h4>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">5 сен, 12:00</div>
+                        <div class="info-value">Консультация физиотерапевта</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">12 сен, 15:30</div>
+                        <div class="info-value">Осмотр у ортопеда</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Экран 2: Главная -->
+        <section id="home-screen" class="screen">
+    <div class="screen-header">
+        <h2>Добро пожаловать, Алексей!</h2>
+        <p>Ваш план на сегодня</p>
+    </div>
+    
+    <div class="tabs">
+        <div class="tab active" data-tab="tasks">Текущие задачи</div>
+        <div class="tab" data-tab="history">История выполненных</div>
+    </div>
+    
+    <div class="tasks-container active" data-container="tasks">
+        <div class="tasks-grid">
+            <div class="task-card" data-task-id="1">
+                <h3 class="task-title">Записаться на прием к физиотерапевту до 15 числа</h3>
+                <p class="task-desc">Не забудьте записаться на следующий сеанс физиотерапии для продолжения реабилитации.</p>
+                <button class="btn btn-primary complete-btn">Отметить выполнение</button>
+            </div>
+            
+            <div class="task-card" data-task-id="2">
+                <h3 class="task-title">Выполнить упражнения ЛФК</h3>
+                <p class="task-desc">Комплекс упражнений №2, 3 подхода по 10 повторений. Следите за техникой выполнения.</p>
+                <button class="btn btn-primary complete-btn">Отметить выполнение</button>
+            </div>
+            
+            <div class="task-card" data-task-id="3">
+                <h3 class="task-title">Принять лекарства</h3>
+                <p class="task-desc">Обезболивающее после завтрака и ужина. Не превышайте рекомендованную дозировку.</p>
+                <button class="btn btn-primary complete-btn">Отметить выполнение</button>
+            </div>
+            
+            <div class="task-card" data-task-id="4">
+                <h3 class="task-title">Заполнить дневник самочувствия</h3>
+                <p class="task-desc">Отметьте изменения в самочувствии, уровень боли и пройденные упражнения.</p>
+                <button class="btn btn-primary complete-btn">Отметить выполнение</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="history-container" data-container="history">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">История выполненных задач</h4>
+            </div>
+            <div class="history-list">
+                <div class="empty-state">
+                    <i class="fas fa-clipboard-list"></i>
+                    <p>Здесь будут отображаться выполненные задачи</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Экран 3: Чат с AI-помощником -->
+        <section id="chat-screen" class="screen">
+            <div class="screen-header">
+                <h2>Чат с AI-помощником</h2>
+                <p>Задайте любой вопрос о реабилитации</p>
+            </div>
+            
+            <div class="predefined-questions">
+                <button class="question-btn" data-question="У меня заболела спина после вчерашних упражнений. Это нормально?">
+                    Болит спина после упражнений
+                </button>
+                <button class="question-btn" data-question="Я ищу хорошего врача ЛФК для мамы. У нее остеоартроз коленного сустава, живем в районе Новогиреево. Нужен кто-то с большим опытом">
+                    Найти врача ЛФК
+                </button>
+                <button class="question-btn" data-question="Мне нужен стул для душа для пожилого человека, который не скользит и у него есть спинка">
+                    Подобрать стул для душа
+                </button>
+            </div>
+            
+            <div class="chat-container">
+                <div class="chat-messages">
+                    <div class="message ai">
+                        <div class="message-content">
+                            <p>Здравствуйте, Алексей! Я ваш AI-помощник. Чем могу помочь в вопросах реабилитации?</p>
+                            <div class="message-time">10:00</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <input type="text" placeholder="Введите ваше сообщение...">
+                    <button class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Экран 4: Подбор ТСР -->
+        <section id="products-screen" class="screen">
+            <div class="screen-header">
+                <h2>Подбор технических средств реабилитации</h2>
+                <p>Найдите необходимое оборудование для реабилитации</p>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Какой товар вам нужен?">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-chair fa-3x"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Стул для душа со спинкой</h3>
+                        <p class="product-desc">Противоскользящие ножки, регулируемая высота, устойчивая конструкция</p>
+                        <button class="btn btn-primary">Подробнее</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-bath fa-3x"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Противоскользящий коврик для ванной</h3>
+                        <p class="product-desc">Безопасность при приеме душа, нескользящая поверхность</p>
+                        <button class="btn btn-primary">Подробнее</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-crutch fa-3x"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Регулируемые костыли</h3>
+                        <p class="product-desc">Алюминиевые, легкие, с регулировкой высоты</p>
+                        <button class="btn btn-primary">Подробнее</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Экран 5: Специалисты и центры -->
+        <section id="specialists-screen" class="screen">
+            <div class="screen-header">
+                <h2>Специалисты и центры реабилитации</h2>
+                <p>Найдите подходящего специалиста для консультации</p>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Поиск специалистов...">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            
+            <div class="specialists-grid">
+                <div class="specialist-card">
+                    <div class="specialist-image">
+                        <i class="fas fa-user-md fa-3x"></i>
+                    </div>
+                    <div class="specialist-details">
+                        <h3 class="specialist-name">Др. Смирнова Елена</h3>
+                        <p class="specialist-spec">Врач ЛФК, стаж 15 лет</p>
+                        <p class="specialist-location">Медицинский центр "Здоровье", Новогиреево</p>
+                        <button class="btn btn-primary">Записаться</button>
+                    </div>
+                </div>
+                
+                <div class="specialist-card">
+                    <div class="specialist-image">
+                        <i class="fas fa-user-md fa-3x"></i>
+                    </div>
+                    <div class="specialist-details">
+                        <h3 class="specialist-name">Др. Иванов Алексей</h3>
+                        <p class="specialist-spec">Реабилитолог, стаж 12 лет</p>
+                        <p class="specialist-location">Реабилитационный центр "Восстановление"</p>
+                        <button class="btn btn-primary">Записаться</button>
+                    </div>
+                </div>
+                
+                <div class="specialist-card">
+                    <div class="specialist-image">
+                        <i class="fas fa-user-md fa-3x"></i>
+                    </div>
+                    <div class="specialist-details">
+                        <h3 class="specialist-name">Др. Петрова Ольга</h3>
+                        <p class="specialist-spec">Физиотерапевт, стаж 10 лет</p>
+                        <p class="specialist-location">Клиника "Реабилитация плюс", Центральный район</p>
+                        <button class="btn btn-primary">Записаться</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<script src="./script.js"></script>
+</body>
+</html>
